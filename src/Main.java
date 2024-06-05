@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class Main {
@@ -18,8 +17,16 @@ public class Main {
             }
         }
 
-        for(Integer i: allCharacters.values()) {
-
+        for(String s: allCharacters.keySet()) {
+            if (allCharacters.get(s)%words.length==0) {
+                characters.add(s);
+                int duplicates = allCharacters.get(s)/words.length;
+                if(duplicates>1) {
+                    for (int i = 1; i < duplicates ; i++) {
+                        characters.add(s);
+                    }
+                }
+            }
         }
         System.out.println(allCharacters);
 
