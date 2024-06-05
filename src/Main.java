@@ -18,13 +18,14 @@ public class Main {
         }
 
         for(String s: allCharacters.keySet()) {
-            if (allCharacters.get(s)%words.length==0) {
+            int duplicates = allCharacters.get(s)/words.length;
+
+            if (duplicates==1) {
+                System.out.println("test");
                 characters.add(s);
-                int duplicates = allCharacters.get(s)/words.length;
-                if(duplicates>1) {
-                    for (int i = 1; i < duplicates ; i++) {
-                        characters.add(s);
-                    }
+            } else if(duplicates>1) {
+                for (int i = 0; i < duplicates ; i++) {
+                    characters.add(s);
                 }
             }
         }
